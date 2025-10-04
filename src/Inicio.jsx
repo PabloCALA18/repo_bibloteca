@@ -1,33 +1,50 @@
-import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link } from "react-router-dom";
+
+const peliculas = [
+{
+id: 1,
+titulo: "Matrix",
+director: "Lana y Lilly Wachowski",
+año: 1999,
+descripcion: "Un hacker descubre la verdad detrás de la realidad simulada en la que vive y lidera la rebelión contra las máquinas."
+},
+{
+id: 2,
+titulo: "El Señor de los Anillos: La Comunidad del Anillo",
+director: "Peter Jackson",
+año: 2001,
+descripcion: "Un hobbit hereda un anillo poderoso y emprende una peligrosa misión para destruirlo antes de que caiga en manos del enemigo."
+},
+{
+id: 3,
+titulo: "Inception",
+director: "Christopher Nolan",
+año: 2010,
+descripcion: "Un ladrón especializado en infiltrarse en los sueños debe cumplir una misión imposible: implantar una idea en la mente de alguien."
+},
+{
+id: 4,
+titulo: "Pulp Fiction",
+director: "Quentin Tarantino",
+
+año: 1994,
+descripcion: "Historias entrelazadas de criminales, boxeadores y gánsteres en Los Ángeles, narradas con un estilo único y no lineal."
+},
+{
+id: 5,
+titulo: "Interstellar",
+director: "Christopher Nolan",
+año: 2014,
+descripcion: "Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
+}
+];
 
 export default function Inicio() {
-
-  const librosIniciales = [
-    { id: 1, titulo: "1984", categoria: "Ficción" },
-    { id: 2, titulo: "Sapiens", categoria: "No ficción" },
-    { id: 3, titulo: "Un mundo feliz", categoria: "Ficción" },
-    { id: 4, titulo: "Una breve historia del tiempo", categoria: "No ficción" }
-  ];
-
   return (
-    <>
-      <nav>
-        <h1>Bibloteca "Encontrá tu libro"</h1>
-        <ul>
-          <li>
-            <Link to="/">Inicio</Link>
-          </li>
-          <li>
-            <Link to="/libros/ficcion">Libros de ficción</Link>
-          </li>
-          <li>
-            <Link to="/libros/no-ficcion">Libros de no ficción</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Outlet context={librosIniciales} />
-    </>
-  )
+    <div>
+      <h1>Bienvenido a la app de peliss</h1>
+      <Link to="/peliculas/all">Ver las películas</Link>
+      <Outlet context={{ peliculas }} />
+    </div>
+  );
 }

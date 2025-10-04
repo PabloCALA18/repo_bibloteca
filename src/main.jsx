@@ -1,21 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Inicio from "./Inicio"
-import Ficcion from "./Ficcion"
-import Noficcion from "./Noficcion"
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
 
+import Inicio from "./Inicio";
+import Pelicula from "./Pelicula";
+import DetallePelicula from "./DetalleDePelicula";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />}>
-          <Route path="libros/ficcion" element={< Ficcion/>} />
-          <Route path="libros/no-ficcion" element={< Noficcion/>} />
+       <Route path="/" element={<Inicio />}>
+         <Route path="peliculas/all" element={<Pelicula />} />
+         <Route path="peliculas/:id" element={<DetallePelicula />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);
